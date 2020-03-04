@@ -30,15 +30,17 @@ var { Services } = ChromeUtils.import("resource://gre/modules/Services.jsm");
 // inside another JSM.
 //
 var { ExtensionParent } = ChromeUtils.import("resource://gre/modules/ExtensionParent.jsm");
-var extension = ExtensionParent.GlobalManager.getExtension("overlay@sample.extensions.thunderbird.net");
-var { OverlayManager } = ChromeUtils.import(extension.getURL("api/overlay/OverlayManager.jsm"));
 var OM = null;
+var extension = null;
 
 // This is the important part. It implements the functions and events defined in schema.json.
 // The variable must have the same name you've been using so far, "overlay" in this case.
 var overlay = class extends ExtensionCommon.ExtensionAPI {
   getAPI(context) {
-    // To be notified of the extension going away, call callOnClose with any object that has a
+    extension = context.extension;
+    var { OverlayManager } = ChromeUtils.import(extension.getURL("api/overlay/OverlayManager.jsm"));
+
+// To be notified of the extension going away, call callOnClose with any object that has a
     // close function, such as this one.
     context.callOnClose(this);
     console.log("1");
