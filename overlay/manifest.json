@@ -1,0 +1,29 @@
+{
+  "manifest_version": 2,
+  "name": "Extension containing an experimental overlay API",
+  "version": "1",
+  "applications": {
+    "gecko": {
+      "id": "overlay@sample.extensions.thunderbird.net"
+    }
+  },
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "experiment_apis": {
+    "overlay": {
+      "schema": "api/overlay/schema.json",
+      "parent": {
+        "scopes": [
+          "addon_parent"
+        ],
+        "paths": [
+          [
+            "overlay"
+          ]
+        ],
+        "script": "api/overlay/implementation.js"
+      }
+    }
+  }
+}

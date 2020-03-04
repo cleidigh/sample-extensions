@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+
+<overlay 
+    id="TestOverlay" 
+    xmlns:html="http://www.w3.org/1999/xhtml">
+   
+    <menuitem id="test.accountmgrEntry" label="TEST" insertbefore="menu_accountmgr" oncommand="alert('TEST')" />
+
+</overlay>        

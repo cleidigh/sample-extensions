@@ -1,0 +1,39 @@
+[
+  {
+    "namespace": "overlay",
+    "functions": [
+      {
+        "name": "activate",
+        "type": "function",
+        "description": "Activates the overlay manager.",
+        "async": true,
+        "parameters": []
+      },
+      {
+        "name": "deactivate",
+        "type": "function",
+        "description": "Deactivates the overlay manager.",
+        "async": true,
+        "parameters": []
+      },
+      {
+        "name": "register",
+        "type": "function",
+        "description": "registers an overlay",
+        "async": true,
+        "parameters": [
+          {
+            "name": "dst",
+            "type": "string",
+            "description": "File to be overlayed."
+          },
+          {
+            "name": "overlay",
+            "type": "string",
+            "description": "Overlay file."
+          }
+        ]
+      }
+    ]
+  }
+]
