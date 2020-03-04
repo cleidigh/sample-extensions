@@ -1,6 +1,4 @@
 /*
- * This file is part of TbSync.
- *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. 
@@ -68,8 +66,7 @@ function OverlayManager(options = {}) {
   this.registerOverlay = async function (dst, overlay, attributesOverrides = []) {
     if (overlay.startsWith("moz-extension://")) {
       let xul = await this.readChromeFile(overlay);
-      console.log(xul);
-			let rootNode = this.getDataFromXULString(null, xul);
+      let rootNode = this.getDataFromXULString(null, xul);
   
       //get urls of stylesheets to load them
       let styleSheetUrls = this.getStyleSheetUrls(rootNode);

@@ -43,26 +43,21 @@ var overlay = class extends ExtensionCommon.ExtensionAPI {
 // To be notified of the extension going away, call callOnClose with any object that has a
     // close function, such as this one.
     context.callOnClose(this);
-    console.log("1");
     OM = new OverlayManager({verbose: 0});
     
     return {
       overlay: {
 
         activate: async function(name) {
-          console.log("start");
           OM.startObserving();
         },
 
         deactivate: async function(name) {
-          console.log("stop");
           OM.stopObserving();
         },
 
         register: async function(dst, overlay) {
-          console.log("register 1");
           await OM.registerOverlay(dst, extension.getURL(overlay));
-          console.log("register 2");
         }
 
       },
