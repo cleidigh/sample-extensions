@@ -1,9 +1,24 @@
 <?xml version="1.0"?>
 
 <overlay 
-    id="TestOverlay" 
+    id="TestOverlay"  
     xmlns:html="http://www.w3.org/1999/xhtml">
-   
+    
+    <!-- 
+        The overlay manager checks the following attributes of the top level element in this file (overlay in this case) 
+        and executes them (like onload="...") :
+        * onbeforeinject - if this returns false, injection is aborted (conditional inject)
+        * oninject - executed after overlay has been injected
+        * onremove - executed after overlay has been removed (by addon-removal)
+
+        Each element added here needs its own id. Supported positioning attributes are :
+        * insertbefore="<id>"
+        * insertafter="<id>"
+        * appendto="<id>"
+        
+        The overlay manager does not support matched positioning (duplicating an existing element as container and 
+        placing an id-less element inside).
+    -->
     <menuitem id="test.accountmgrEntry" label="TEST" insertbefore="menu_accountmgr" oncommand="alert('TEST')" />
 
 </overlay>        
